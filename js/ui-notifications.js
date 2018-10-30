@@ -9,7 +9,7 @@ class UINotifications {
 		$(document).on("click", ".status-message-close", function(){
 			$(".status-message").fadeOut();
 		});
-		
+
 		this.statusMessage = $("<div/>").html(statusMessageHtml);
 		this.inYourFace = $("<div/>").html(inYourFaceHtml);
 		
@@ -19,20 +19,19 @@ class UINotifications {
 	}
 
  	showStatusMessage(message){
-
+ 		var myStatusMessage = this;
 	  	var message = message || "Default Message"
 	  	var statusMessageTimeout;
 	  	
-		
-		if(this.statusMessage.find(".status-message").is(':visible')){
+		if(myStatusMessage.statusMessage.find(".status-message").is(':visible')){
 	     clearTimeout(statusMessageTimeout);
 	    }
 
-		this.statusMessage.find(".status-message .status-message-text").html(message);
-		this.statusMessage.find(".status-message").fadeIn();
+		myStatusMessage.statusMessage.find(".status-message .status-message-text").html(message);
+		myStatusMessage.statusMessage.find(".status-message").fadeIn();
 		
 	    statusMessageTimeout = setTimeout(function(){
-	       this.statusMessage.find(".status-message").fadeOut(); 
+	       myStatusMessage.statusMessage.find(".status-message").fadeOut(); 
 	    }, 5000)
 		
 	}
