@@ -19,21 +19,43 @@ class UINotifications {
 	}
 
  	showStatusMessage(message){
- 		var myStatusMessage = this;
+ 		var notifications = this;
 	  	var message = message || "Default Message"
 	  	var statusMessageTimeout;
 	  	
-		if(myStatusMessage.statusMessage.find(".status-message").is(':visible')){
+		if(notifications.statusMessage.find(".status-message").is(':visible')){
 	     clearTimeout(statusMessageTimeout);
 	    }
 
-		myStatusMessage.statusMessage.find(".status-message .status-message-text").html(message);
-		myStatusMessage.statusMessage.find(".status-message").fadeIn();
+		notifications.statusMessage.find(".status-message .status-message-text").html(message);
+		notifications.statusMessage.find(".status-message").fadeIn();
 		
 	    statusMessageTimeout = setTimeout(function(){
-	       myStatusMessage.statusMessage.find(".status-message").fadeOut(); 
+	       notifications.statusMessage.find(".status-message").fadeOut(); 
 	    }, 5000)
 		
+	}
+	showInYourFace(message, callback){
+		var notifications = this;
+		var inYourFaceTimeout;
+		var inYourFaceRandoms = ["Good work!", "Hard work!", "Nice job!", "Hustle!"]
+
+		var message = message || inYourFaceRandoms[Math.floor(Math.random()*inYourFaceRandoms.length)];;
+		var callback = callback || function(){};
+
+		if(notifications.inYourFace.find(".in-your-face").is(':visible')){
+	     clearTimeout(inYourFaceTimeout);
+	    }
+
+		notifications.inYourFace.find(".in-your-face .in-your-face-text").html(message);
+		notifications.inYourFace.find(".in-your-face").show();
+		
+	    inYourFaceTimeout = setTimeout(function(){
+	       notifications.inYourFace.find(".in-your-face").fadeOut(function(){
+	       	callback();
+	       }); 
+
+	    }, 1000)
 	}
 }
 

@@ -13,8 +13,10 @@
 </head>
 <body>
 
-<button></button>
-
+	<button type="button" class="show-notification">Show Notification</button>
+	<br />
+	<button type="button" class="show-face">Show "In Your Face"</button>
+	<p style="display: none" class="finish-message">Finished</p>
 
 </body>
 
@@ -25,6 +27,14 @@
 
 <script type="text/javascript">
     var notifications = new UINotifications();
-    notifications.showStatusMessage();
+    
+    $(".show-notification").click(function(){
+    	notifications.showStatusMessage("Hello world!");
+    });
 
+    $(".show-face").click(function(){
+    	notifications.showInYourFace("Great work!", function(){
+    		$(".finish-message").show();
+    	});
+    });
 </script>
