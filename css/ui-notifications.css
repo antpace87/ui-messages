@@ -1,0 +1,55 @@
+body{
+  margin: 0px;
+}
+.status-message{
+  /*height: 50px;*/
+  display: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  background-color: #763234;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  position: fixed;
+  width: 100%;
+  top: 49px;
+}
+.status-message-inner{
+  margin: 0px;
+}
+
+.status-message-close{
+  cursor: pointer;
+  position: fixed;
+  right: 10px;
+}
+
+
+.in-your-face{
+  display: none;
+  position: fixed;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-size: 48px;
+  color: white;
+
+}
+.in-your-face-inner{
+    background: black;
+    background: purple;
+    width: 80%;
+    margin: 0 auto;
+    opacity: .85;
+    padding: 10px;
+    /*border: 6px solid purple;*/
+}
+@keyframes pulse{
+  25%  {transform: scale(0.9, 0.9);}
+  75%  {transform: scale(1.1, 1.1);}
+
+}
+.pulse{
+  animation: pop 0.5s ease-in infinite;
+}
