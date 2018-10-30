@@ -9,14 +9,21 @@
     <title>UI Notifications - AntPace.com</title>
     
     <meta name="description" content="UI Notifications">
-    
+    <style>
+    .ap-container{
+    	margin-top: 50px;
+    	padding: 10px;
+    }
+    </style>
 </head>
 <body>
 
+<div class="ap-container">
 	<button type="button" class="show-notification">Show Notification</button>
 	<br />
 	<button type="button" class="show-face">Show "In Your Face"</button>
 	<p style="display: none" class="finish-message">Finished</p>
+</div>
 
 </body>
 
@@ -27,7 +34,7 @@
 
 <script type="text/javascript">
     var notifications = new UINotifications();
-    
+
     $(".show-notification").click(function(){
     	notifications.showStatusMessage("Hello world!");
     });
